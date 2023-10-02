@@ -1,0 +1,41 @@
+## Preparing
+
+#install package!!!
+# devtools::install_github("talbano/epmr")
+# devtools::install_github("strengejacke/strengejacke")
+# install.packages("pacman")
+pacman::p_load(tidyverse, tidymodels, readxl, psych, descr, car, outreg, lm.beta, lawstat, agricolae, ggfortify, lmtest, ggmosaic, gmodels, DMwR2, patchwork, dagitty, ggbump, DiagrammeR, gtsummary, sjlabelled, sjmisc, sjstats, ggeffects, sjPlot, corrplot, foreign, plyr, knitr, jmv, lavaan, semPlot, summarytools, vcd, epmr, GGally, DescTools, nord, DT, fastDummies, plotly, lattice, highcharter, kableExtra, stargazer, RColorBrewer, diagram, nFactors, leaps)
+               
+
+
+## Set working directory and Loading dataset
+rm(list=ls())
+setwd("G:/000_23년/00_논문작성/0_DataSet/7_한국노동패널 1-24차 release (Excel)/data")
+getwd()
+options(warn=-1) # Ignore less important warning messages
+graphics.off()
+# cat('/014')
+list.files()
+
+
+
+## Import Data
+
+raw_data14 <- read.csv("NaSTaB14H.csv", header = T, stringsAsFactors = F, fileEncoding = "euc-kr")
+raw_data13 <- read.csv("NaSTaB13H.csv", header = T, stringsAsFactors = F, fileEncoding = "euc-kr")
+
+raw_data13 <- rename(raw_data13, hid = hid13)
+raw_data14 <- rename(raw_data14, hid = hid14)
+raw_data13$h13ba003[raw_data13$h13ba003 == -9] <- NA
+raw_data14$h14ba003[raw_data14$h14ba003 == -9] <- NA
+raw_data14$h14ba570[raw_data14$h14ba570 == -9] <- NA
+raw_data14$h14co004[raw_data14$h14co004 == -9] <- NA
+raw_data <- merge(raw_data13, raw_data14, by = "hid")
+raw_data <- raw_data |> mutate(housing_price_changes = h14ba003 - h13ba003)
+# mutate(final_tax = h14ba127 - h13ba127) |> 
+df <- raw_data
+# raw_data <- df
+
+# Data Selection
+df <- df |> select(
+  hid,   #가구ID
