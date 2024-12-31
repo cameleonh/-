@@ -3,6 +3,8 @@ pip install tensorflow==2.5.0
 conda install numpy==1.19.5 pandas matplotlib seaborn scikit-learn scipy statsmodels jupyter
 
 
+텐서플로 2.10일 경우는
+conda install numpy==1.22.3 pandas matplotlib seaborn scikit-learn scipy statsmodels jupyter
 
 
 
