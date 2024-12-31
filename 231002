@@ -13,6 +13,17 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 
 
 
+####업무 자동화에 필수 라이브러리
+
+conda install -c conda-forge xlwings requests openpyxl selenium pyautogui pytesseract pypdf2 xlsxwriter pywin32 gspread pygsheets csvkit google-api-python-client oauth2client
+pip install schedule pyxll
+
+pip install xlwings requests openpyxl selenium schedule pyautogui pytesseract PyPDF2 subprocess.run pyxll xlsxwriter pywin32 gspread pygsheets csvkit google-api-python-client oauth2client
+
+
+
+
+
 
 
 
