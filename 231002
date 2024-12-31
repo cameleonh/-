@@ -8,6 +8,13 @@ conda install numpy==1.22.3 pandas matplotlib seaborn scikit-learn scipy statsmo
 
 
 
+## 최신버전 파이토치 설치 명령어
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+
+
+
+
+
 
 ## Preparing
 
